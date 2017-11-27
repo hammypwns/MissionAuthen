@@ -1,0 +1,87 @@
+﻿
+@{
+    ViewBag.Title = "FAQ";
+}
+
+<div class="container">
+    <nav aria-label="breadcrumb" role="navigation">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/Home/Mission/">Missions</a></li>
+            <li class="breadcrumb-item active" aria-current="page">FAQ</li>
+        </ol>
+    </nav>
+    <h3>@ViewBag.missionName Mission</h3>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <h4>Mission Info</h4>
+                <h5>Mission President: </h5>
+                <h5>Mission Address: </h5>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <h4>Culture</h4>
+                <h5>Dominant Religion: </h5>
+                <h5>Flag: </h5>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <h4>Geography</h4>
+                <h5>Climate: </h5>
+            </div>
+        </div>
+    </div>
+
+    <h3>Frequently Asked Questions</h3>
+    <div class="row">
+        <div class="col-md-12 question-section">
+            <div class="question">What kind of weather can a new missionary expect?</div>
+            <div class="answer"><i class="glyphicon glyphicon-chevron-right"></i> Nothing torrential in terms of rain. Rivers occasionally turned to blood and frogs would rain from sky.</div>
+            <div class="answer"><i class="glyphicon glyphicon-chevron-right"></i> I loved the weather, preparation days in sandals are a big plus!</div>
+            <form>
+                <div class="form-group">
+                    <textarea class="form-control" for="answer" placeholder="Types your response..."></textarea>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary " name="submit" type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-12 question-section">
+            <div class="question">Why don't my packages ever arrive? My missionary has been out for 4 months as hasn't received a single one.</div>
+            <div class="answer"><i class="glyphicon glyphicon-chevron-right"></i> Most packages travel via the pony express which for its time was great, but now takes (on average) between 5 and 7 months for mail to arrive.</div>
+            <form>
+                <div class="form-group">
+                    <textarea class="form-control" for="answer" placeholder="Types your response..."></textarea>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary " name="submit" type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <h3>Post your own Question</h3>
+    <div class="row">
+        <div class="col-md-12">
+            <form>
+                <div class="form-group">
+                    <!-- Name field -->
+                    <label class="control-label " for="name">Name</label>
+                    <input class="form-control" id="name" name="name" type="text" />
+                </div>
+                <div class="form-group">
+                    <!-- Question field -->
+                    <label class="control-label " for="question">Question</label>
+                    <textarea class="form-control" cols="40" id="question" name="question" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary " name="submit" type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

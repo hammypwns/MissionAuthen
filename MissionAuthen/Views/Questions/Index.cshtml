@@ -1,0 +1,39 @@
+﻿@model IEnumerable<MissionAuthen.Models.Question>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MissionId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QuestionDescription)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) { @*shows mission id, questions descriptions (the body of the question), and then edit, details, and delete links for the questions*@
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MissionId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QuestionDescription)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.QuestionId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.QuestionId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.QuestionId })
+        </td>
+    </tr>
+}
+
+</table>

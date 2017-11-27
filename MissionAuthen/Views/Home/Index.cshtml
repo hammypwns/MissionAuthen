@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "Mission HQ | Home Page";
+}
+
+<div class="jumbotron jumbotron-fluid text-center">
+    <div class="jumbo-header">
+        <h1>Mission Headquarters</h1>
+        <p class="lead">Ask questions and find information about missions of the world</p>
+        <p>@Html.ActionLink("FIND YOUR MISSION", "Index", "Missions", null, new { @class = "btn btn-primary cta" })</p>
+    </div>
+</div>
+
+<div class="container body-content">
+    <div class="row">
+        <div class="col-md-4">
+            <h2>
+                <i class="fa fa-compass"></i> Discover
+            </h2>            
+            <p>
+                Mission HQ has information about missions all over the world. Learn about local customs, food, weather, and more.
+            </p>
+            <p>@Html.ActionLink("Learn about your Mission", "Index", "Missions", null, new { @class = "btn btn-default" })</p>
+        </div>
+        <div class="col-md-4">
+            <h2>
+                <i class="fa fa-question-circle"></i> Ask
+            </h2>  
+            <p>Find out about questions you have about your mission by posting questions that can be answered by other users and returned missionaries.</p>
+            <p>@Html.ActionLink("Ask about your mission", "Index", "Missions", null, new { @class = "btn btn-default" })</p>
+        </div>
+        <div class="col-md-4">
+            <h2>
+                <i class="fa fa-check-circle"></i> Help Out
+            </h2>  
+            <p>Help others understand more about their mission by answering questions about the mission you served in.</p>
+            <p>@Html.ActionLink("Answer questions", "Index", "Missions", null, new { @class = "btn btn-default" })</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-2 col-md-3 col-sm-4"></div>
+        <div class="col-lg-8 col-md-6 col-sm-4">
+            <i class="fa fa-quote-left fa-3x fa-pull-left fa-border" aria-hidden="true"></i>
+            <div class="quote">Now is the time for members and missionaries to come together, to work together, to labor in the Lord’s vineyard to bring souls unto Him. —President Thomas S. Monson</div>
+        </div>
+    </div>
+</div>

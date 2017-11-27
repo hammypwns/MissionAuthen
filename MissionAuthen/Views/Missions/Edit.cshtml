@@ -1,0 +1,89 @@
+﻿@model MissionAuthen.Models.Mission
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) @*begins form for mission to be edited*@
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Mission</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.MissionId)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MissionName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MissionName, new { htmlAttributes = new { @class = "form-control" } }) @*displays mission name from model*@
+                @Html.ValidationMessageFor(model => model.MissionName, "", new { @class = "text-danger" })
+             @*   @Html.DropDownListFor(
+                m => m.MissionName,
+                new SelectList(ViewBag.MissionNames, "MissionId", "MissionName")
+            ) *@
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MissionPresident, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MissionPresident, new { htmlAttributes = new { @class = "form-control" } }) @*displays mission president name from model*@
+                @Html.ValidationMessageFor(model => model.MissionPresident, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MissionAddress, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MissionAddress, new { htmlAttributes = new { @class = "form-control" } }) @*displays mission address from model*@
+                @Html.ValidationMessageFor(model => model.MissionAddress, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MissionPrimaryLanguage, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MissionPrimaryLanguage, new { htmlAttributes = new { @class = "form-control" } }) @*displays primary language from model*@
+                @Html.ValidationMessageFor(model => model.MissionPrimaryLanguage, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MissionClimate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MissionClimate, new { htmlAttributes = new { @class = "form-control" } }) @*displays climate from model*@
+                @Html.ValidationMessageFor(model => model.MissionClimate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MissionDominantReligion, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MissionDominantReligion, new { htmlAttributes = new { @class = "form-control" } }) @*display dominant religion*@
+                @Html.ValidationMessageFor(model => model.MissionDominantReligion, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MissionFlagURL, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MissionFlagURL, new { htmlAttributes = new { @class = "form-control" } }) @*uses url from model as source for image*@
+                @Html.ValidationMessageFor(model => model.MissionFlagURL, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" /> @*submits from to edit httppost method in controller*@
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

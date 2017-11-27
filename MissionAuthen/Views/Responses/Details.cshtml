@@ -1,0 +1,50 @@
+﻿@model MissionAuthen.Models.Response
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Response</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.QuestionId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuestionId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResponseDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResponseDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResponseAuthor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResponseAuthor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResponseDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResponseDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ResponseId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

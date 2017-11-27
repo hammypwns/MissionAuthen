@@ -1,0 +1,22 @@
+﻿@model IEnumerable<MissionAuthen.Models.Mission>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 text-right" style="font-size: 24px">Find a mission to learn more: </div>
+        <div class="col-md-6">
+            @using (Html.BeginForm())
+            {
+                @Html.DropDownList(
+                "MissionName",
+                new SelectList(ViewBag.MissionNames, "MissionId", "MissionName"),
+                "-- Select a Mission --",
+                new { onchange = @"window.location.href = '/Missions/Details/' + this.value;", @class = "form-control" }
+            )
+            }
+        </div>
+    </div>
+</div>
+

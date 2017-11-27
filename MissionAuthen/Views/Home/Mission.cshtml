@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "Missions";
+}
+<div class="container">
+    <h2>@ViewBag.Title</h2>
+    <h3>@ViewBag.Message</h3>
+    <select class="form-control" onchange="window.location.href='/Mission/FAQ/'+this.value;" id="Missions" name="Missions">
+        <option>Select a Mission</option>
+        <option>Spain, Barcelona</option>
+        <option>Missouri, St Louis</option>
+        <option>Pacific, Atlantis</option>
+    </select>
+</div>
