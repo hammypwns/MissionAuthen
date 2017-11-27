@@ -49,10 +49,11 @@
                                 {
                                     <div class="answer">
                                         <i class="glyphicon glyphicon-chevron-right"></i> @response.ResponseDescription 
-                                        @if (response.UserId == ViewBag.userID) {
-                                            <a href="@($"/Responses/Edit/{response.ResponseId}")" ><i class="glyphicon glyphicon-pencil"></i></a>
+                                        <span class="answer-details">@user.UserFirstName @user.UserLastName &nbsp;</span>
+                                        @if (response.UserId == ViewBag.userID)
+                                        {
+                                            @Html.ActionLink("Edit", "Edit", "Responses", new { id = response.ResponseId, responseId = response.ResponseId, missionId = question.MissionId }, new { @class = "btn btn-info btn-sm" })
                                         }
-                                        <span class="answer-details">@user.UserFirstName @user.UserLastName</span>
                                     </div>
                                 }
                             }

@@ -65,8 +65,10 @@ namespace MissionAuthen.Controllers
         }
 
         // GET: Responses/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int? id, int? missionId)
         {
+            ViewBag.currentMissionId = missionId;
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -84,13 +86,24 @@ namespace MissionAuthen.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ResponseId,QuestionId,ResponseDescription,ResponseAuthor,ResponseDate")] Response response) //binds form fields to objects
+        public ActionResult Edit([Bind(Include = "ResponseId,QuestionId,ResponseDescription,ResponseAuthor,ResponseDate,UserId")] Response response, FormCollection form) //binds form fields to objects
         {
             if (ModelState.IsValid)
             {
                 db.Entry(response).State = EntityState.Modified; //indicates model has been modified
                 db.SaveChanges(); //saves to database
-                return RedirectToAction("Index");
+
+                int missionResponseId = response.ResponseId;
+                string missionId = form["missionId"].ToString();
+
+                //int currentMission = db.Database.SqlQuery<int>(
+                //  "SELECT TOP 1 Mission.MissionId " +
+                //  "FROM [Mission] " +
+                //  "INNER JOIN [Question] ON Question.MissionId = Mission.MissionId" +
+                //  "INNER JOIN [Response] ON Response.QuestionId = Question.QuestionId" +
+                //  "WHERE Response.ResponseId = "+ missionResponseId).First<int>();
+
+                return RedirectToAction("Details", "Missions", new { id = missionId });
             }
             return View(response);
         }
