@@ -32,23 +32,23 @@ namespace MissionAuthen.Controllers
         }
 
         // GET: Missions/Details/5
-        [Authorize]
+        [Authorize] //this requires authorization
         public ActionResult Details(int? id, int? authen)
         {
 
-            string userEmail = User.Identity.GetUserName();
+            string userEmail = User.Identity.GetUserName(); //gets email from currently logged in user
 
-            int current = db.Database.SqlQuery<int>(
+            int current = db.Database.SqlQuery<int>( //queries database to get UserId
                   "SELECT TOP 1 UserId " +
                   "FROM [User] " +
                   "WHERE UserEmail = '" + userEmail + "'").First<int>();
 
-            if (current == 0)
+            if (current == 0) //for testing purposes if there's a glitch it shows the second database entry (nancy) instead of blowing up.
             {
                 current = 2;
             }
 
-            ViewBag.userID = current;
+            ViewBag.userID = current; //passes UserId via ViewBag
             ViewBag.Questions = db.Questions.ToList(); //creates list of question objects
                 ViewBag.Responses = db.Responses.ToList(); //creates list of responses object
                 ViewBag.Users = db.Users.ToList(); //creates list of users
@@ -66,6 +66,7 @@ namespace MissionAuthen.Controllers
         }
 
         // GET: Missions/Create
+        [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -89,6 +90,7 @@ namespace MissionAuthen.Controllers
         }
 
         // GET: Missions/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             ViewBag.MissionNames = db.Missions.ToList(); //creates list of mission objects
@@ -108,6 +110,7 @@ namespace MissionAuthen.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "MissionId,MissionName,MissionPresident,MissionAddress,MissionPrimaryLanguage,MissionClimate,MissionDominantReligion,MissionFlagURL")] Mission mission)
         {
@@ -121,6 +124,7 @@ namespace MissionAuthen.Controllers
         }
 
         // GET: Missions/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null) //ensures mission id was passed
@@ -137,6 +141,7 @@ namespace MissionAuthen.Controllers
 
         // POST: Missions/Delete/5
         [HttpPost, ActionName("Delete")]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {

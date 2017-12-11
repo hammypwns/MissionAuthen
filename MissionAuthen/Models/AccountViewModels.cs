@@ -7,7 +7,7 @@ namespace MissionAuthen.Models
     public class ExternalLoginConfirmationViewModel
     {
         [Required]
-        [Display(Name = "Email")]
+        [Display(Name = "Email")] //this section adds info/columns to the asp.net managed tables
         public string Email { get; set; }
 
         [Required, DisplayName("Password"), StringLength(50, MinimumLength = 3, ErrorMessage = "Password must be between 3 and 50 characters long.")] //more validation

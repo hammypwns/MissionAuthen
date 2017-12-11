@@ -11,6 +11,7 @@ using MissionAuthen.Models;
 
 namespace MissionAuthen.Controllers
 {
+    [Authorize]
     public class QuestionsController : Controller
     {
         private MISSION_HQContext db = new MISSION_HQContext();

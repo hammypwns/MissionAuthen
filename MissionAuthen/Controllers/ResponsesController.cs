@@ -93,8 +93,8 @@ namespace MissionAuthen.Controllers
                 db.Entry(response).State = EntityState.Modified; //indicates model has been modified
                 db.SaveChanges(); //saves to database
 
-                int missionResponseId = response.ResponseId;
-                string missionId = form["missionId"].ToString();
+                int missionResponseId = response.ResponseId; //gets ResponseId from response object, for user in query
+                string missionId = form["missionId"].ToString(); //gets mission id to pass to details action method
 
                 //int currentMission = db.Database.SqlQuery<int>(
                 //  "SELECT TOP 1 Mission.MissionId " +

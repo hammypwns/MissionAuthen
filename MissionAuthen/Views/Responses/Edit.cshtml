@@ -14,7 +14,7 @@
         <h4>Response</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.ResponseId)
+        @Html.HiddenFor(model => model.ResponseId) @* these few fields are hidden to pass them to the next action method without the user seeing them *@
         @Html.HiddenFor(model => model.QuestionId)
         @Html.HiddenFor(model => model.UserId)
 
